@@ -18,3 +18,5 @@
         - slack
     - name: install ruby
       shell: rbenv install 2.3.0
+    - name: set global ruby version
+      shell: rbenv global 2.3.0
