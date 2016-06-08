@@ -1,0 +1,20 @@
+- hosts: all
+  tasks:  
+    - name: Install libraries with homebrew
+      homebrew: name={{ item }} state=present
+      with_items:
+        - wget
+        - ssh-copy-id
+        - redis
+        - imagemagick
+        - git
+        - rbenv
+        - ruby-build
+        - postgresql
+    - name: Install libraries with homebrew_cask
+      homebrew_cask: name={{ item }} state=present
+      with_items:
+        - iterm2
+        - slack
+    - name: install ruby
+      shell: rbenv install 2.3.0
